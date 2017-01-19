@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.aop.Encoreable;
 import com.aop.Performance;
 
 @Controller
@@ -14,6 +15,7 @@ public class TestController {
 	
 	@RequestMapping("/")
 	public String test(){
+		((Encoreable) this.performance).performEncore();
 		this.performance.perform();
 		return "hello";
 	}
